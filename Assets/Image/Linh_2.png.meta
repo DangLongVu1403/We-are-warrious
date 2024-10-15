@@ -1,0 +1,668 @@
+fileFormatVersion: 2
+guid: 1734d1ace670f9249aa5476d49136752
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Linh_2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1559.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd713d44ec6c324887215db00b51852
+      internalID: 472680388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_1
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1559.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a0da7f8f2e3ee4a9824cfc79b2d6da
+      internalID: 1977346429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_2
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1559.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 007a88990c4691d4fa5d54bc19b688df
+      internalID: 414902962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_3
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1559.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31aacc5fe953fc7428e2c5b2a54f15ae
+      internalID: -96552399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1260.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 871f10c137f12df4a9d21ec86b073b51
+      internalID: -909244985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_5
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1260.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0befafef624e90f43889860820f8ad36
+      internalID: -903850437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_6
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 1260.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03fa642e7a292d340af35d2a117130c5
+      internalID: -1753548066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_7
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 1260.1666
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92e97fad0565d184194adab9546f87e9
+      internalID: -352566635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 961.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207617244e227d740a53bfb6f8a60dfb
+      internalID: -1235696127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_9
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 961.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27242d33f9533d44589d135be0369c0e
+      internalID: -799717814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_10
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 961.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0267cb755c835a94c89c6932ac0a13a3
+      internalID: -1117660413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_11
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 961.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9324c1a423924cf458fd70a9635b2749
+      internalID: 1027418528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 662.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c7b79a42125ece479f9904236bdb689
+      internalID: -603487038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_13
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 662.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa5e7a542e0939409020222932e886f
+      internalID: 1441843865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_14
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 662.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da767c3698b37d4fa99ee3884c5c0f3
+      internalID: -1484991991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_15
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 662.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72f6718569d8eee41942365240ae202e
+      internalID: -1878980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 363.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89a14e35c3b514944900d62f7fd89b8f
+      internalID: 317156951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_17
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 363.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 055875be508a6034f8671077b35ba994
+      internalID: 532970685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_18
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 363.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8b3aa936794a4049800e25557cc559f
+      internalID: 5991616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_19
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 363.1667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c29314fc5e023d744b05bca7a3e521c2
+      internalID: -410189113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64.16667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419402c7a75efdd43a4fb1037fd72167
+      internalID: -393205642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_21
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 64.16667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ef1b37a1288e1a46abb84eec910f489
+      internalID: 1544731507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_22
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 64.16667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 401cd3c263ce01d49bdd658cad455239
+      internalID: 1476017949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Linh_2_23
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 64.16667
+        width: 299.75
+        height: 239.83333
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7229acd9f52e1da4d9bba08bfecfaad9
+      internalID: -595345958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Linh_2_0: 472680388
+      Linh_2_1: 1977346429
+      Linh_2_10: -1117660413
+      Linh_2_11: 1027418528
+      Linh_2_12: -603487038
+      Linh_2_13: 1441843865
+      Linh_2_14: -1484991991
+      Linh_2_15: -1878980
+      Linh_2_16: 317156951
+      Linh_2_17: 532970685
+      Linh_2_18: 5991616
+      Linh_2_19: -410189113
+      Linh_2_2: 414902962
+      Linh_2_20: -393205642
+      Linh_2_21: 1544731507
+      Linh_2_22: 1476017949
+      Linh_2_23: -595345958
+      Linh_2_3: -96552399
+      Linh_2_4: -909244985
+      Linh_2_5: -903850437
+      Linh_2_6: -1753548066
+      Linh_2_7: -352566635
+      Linh_2_8: -1235696127
+      Linh_2_9: -799717814
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
