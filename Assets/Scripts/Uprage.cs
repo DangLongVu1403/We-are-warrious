@@ -56,7 +56,7 @@ public class Uprage : MonoBehaviour
             imgSoldier3.gameObject.SetActive(true);
             mergeId = 1;
         }
-        if (id == 2|| id == 4){
+        if (id == 2|| id == 3){
             imgSoldier1.gameObject.SetActive(false);
             imgSoldier2.gameObject.SetActive(false);
             imgSoldier3.gameObject.SetActive(false);
@@ -68,7 +68,7 @@ public class Uprage : MonoBehaviour
             imgSoldier3_1.gameObject.SetActive(true);
             mergeId = 2;
         }
-        if (id == 3|| id == 5 || id == 6){
+        if (id == 4|| id == 5 || id == 6){
             imgSoldier1.gameObject.SetActive(false);
             imgSoldier2.gameObject.SetActive(false);
             imgSoldier3.gameObject.SetActive(false);

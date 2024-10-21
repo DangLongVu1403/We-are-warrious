@@ -28,12 +28,17 @@ public class EnemyMovement : MonoBehaviour
         dbManager = FindObjectOfType<DatabaseManager>();
         gameManager = FindObjectOfType<GameManager>();
         id = gameManager.getIdEnemy();
+        if(id == 1){
+            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        } else if(id == 2){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        } else if(id == 3){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        }
     }
 
     void Start()
     {
-        transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-
     // Lấy dữ liệu từ database khi bắt đầu nếu có
         if (dbManager != null)
         {

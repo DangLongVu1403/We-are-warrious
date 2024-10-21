@@ -68,4 +68,8 @@ public class FoodManager : MonoBehaviour
     {
         foodText.text = food.ToString(); // Cập nhật văn bản hiển thị lượng thực phẩm
     }
+
+    public void Updatefood(int ConsumedFood){
+        food -= ConsumedFood;
+    }
 }

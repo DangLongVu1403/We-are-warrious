@@ -28,7 +28,7 @@ public class RockAlly : MonoBehaviour
     {
         this.target = target;
         startPoint = transform.position; // Lưu điểm bắt đầu của viên đá
-        Destroy(gameObject, 1f); // Hủy viên đá sau 3 giây nếu không va chạm
+        Destroy(gameObject, 1.2f); // Hủy viên đá sau 3 giây nếu không va chạm
     }
 
     void Update()

@@ -32,21 +32,25 @@ public class SpawnSoldierController : MonoBehaviour
     public Button spawnAlly3Button; // Nút spawn lính ném đá
     private DatabaseManager databaseManager;
     private GameManager gameManager;
+    private FoodManager foodManager;
     private int id;
 
     void Awake(){
         databaseManager = FindObjectOfType<DatabaseManager>();
         gameManager = FindObjectOfType<GameManager>();
+        foodManager = FindObjectOfType<FoodManager>();
     }
 
     private void Start()
     {
         id = gameManager.getIdEnemy();
         StartCoroutine(SpawnEnemySoldierCoroutine1());
-        if (id == 1){
+        if (id == 1 || id ==3){
             StartCoroutine(SpawnEnemySoldierCoroutine2());  
         }
-        // StartCoroutine(SpawnEnemySoldierCoroutine2());
+        else{
+            StartCoroutine(SpawnEnemySoldierCoroutine2_1());
+        }
         StartCoroutine(SpawnEnemySoldierCoroutine3());
 
 
@@ -64,12 +68,18 @@ public class SpawnSoldierController : MonoBehaviour
         int neededFoodAlly3 = int.Parse(neededFoodAlly3Text.text);
         if (currentFood< neededFoodAlly1){
             spawnAlly1Button.interactable = false;
+        }else{
+            spawnAlly1Button.interactable = true;
         }
         if (currentFood< neededFoodAlly2){
             spawnAlly2Button.interactable = false;
+        }else{
+            spawnAlly2Button.interactable = true;
         }
         if (currentFood< neededFoodAlly3){
             spawnAlly3Button.interactable = false;
+        }else{
+            spawnAlly2Button.interactable = true;
         }
     }
 
@@ -158,6 +168,64 @@ public class SpawnSoldierController : MonoBehaviour
                         // Tạo lính mới
                         GameObject newEnemy = Instantiate(throwerEnemyPrefab, spawnPosition, enemySpawnPoint.rotation);
                         newEnemy.GetComponent<ThrowerEnemy>().SetController(this); // Thiết lập controller cho lính mới
+                        throwerEnemies.Add(newEnemy); // Thêm lính vào danh sách enemySoldiers
+                    }
+
+                    // Cập nhật thời gian và số lượng cho lần spawn tiếp theo
+                    if (nextSpawnTime == spawnData.Time1)
+                    {
+                        nextSpawnTime = spawnData.Time2;
+                        currentQuantity = spawnData.Quantity2;
+                    }
+                    else if (nextSpawnTime == spawnData.Time2)
+                    {
+                        nextSpawnTime = spawnData.Time3;
+                        currentQuantity = spawnData.Quantity3;
+                    }
+                    else
+                    {
+                        // Reset lại nếu đã đến cuối
+                        nextSpawnTime = spawnData.Time1;
+                        currentQuantity = spawnData.Quantity1;
+                    }
+
+                    elapsedTime = 0f; // Reset thời gian đã trôi qua
+                }
+
+                yield return null; // Đợi khung hình tiếp theo
+            }
+        }
+        else
+        {
+            Debug.LogError("Không tìm thấy dữ liệu SpawnSoldier1 cho ID 1.");
+        }
+    }
+
+    private IEnumerator SpawnEnemySoldierCoroutine2_1()
+    {
+        var spawnData = databaseManager.GetSpawnSoldier2ById(id); // Lấy dữ liệu từ bảng SpawnSoldier1
+
+        if (spawnData != null)
+        {
+            float elapsedTime = 0f; // Thời gian đã trôi qua
+            float nextSpawnTime = spawnData.Time1; // Thời gian đến lần spawn tiếp theo
+            int currentQuantity = spawnData.Quantity1; // Số lượng lính muốn spawn
+
+            while (true)
+            {
+                elapsedTime += Time.deltaTime; // Cập nhật thời gian đã trôi qua
+
+                if (elapsedTime >= nextSpawnTime)
+                {
+                    // Spawn lính mới theo số lượng được chỉ định
+                    for (int i = 0; i < currentQuantity; i++)
+                    {
+                        // Lấy vị trí spawn hợp lệ
+                        Vector3 spawnPosition = GetValidSpawnPosition(enemySpawnPoint.position, throwerEnemies);
+
+                        // Tạo lính mới
+                        GameObject newEnemy = Instantiate(throwerEnemyPrefab, spawnPosition, enemySpawnPoint.rotation);
+                        newEnemy.GetComponent<ArcherEnemy>().SetController(this); // Thiết lập controller cho lính mới
                         throwerEnemies.Add(newEnemy); // Thêm lính vào danh sách enemySoldiers
                     }
 
@@ -348,6 +416,7 @@ public class SpawnSoldierController : MonoBehaviour
         foodText.text = currentFood.ToString();
 
         UpdateSpawnButtons(); // Cập nhật trạng thái các nút spawn
+        foodManager.Updatefood(neededFood);
     }
 
     // Hàm kiểm tra và trả về vị trí spawn hợp lệ (tránh va chạm với các lính khác)

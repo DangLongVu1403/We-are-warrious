@@ -17,6 +17,9 @@ public class LevelManagement : MonoBehaviour
     private Color originalColor;
     void Awake(){
         databaseManager = FindObjectOfType<DatabaseManager>();
+        image3.gameObject.SetActive(true);
+        image2.gameObject.SetActive(true);
+        image1.gameObject.SetActive(true);
     }
     // Start is called before the first frame update
     void Start()
@@ -31,7 +34,7 @@ public class LevelManagement : MonoBehaviour
         for (int i = levels.Count - 1; i >=0 ; i--)
         {
             DatabaseManager.Level level = levels[i]; // Lấy từng đối tượng Level
-            if ((level.Id == 3) &&(level.Pass == 1)){
+            if ((level.Id == 4) &&(level.Pass == 1)){
                 image3.gameObject.SetActive(false);
                 image2.gameObject.SetActive(false);
                 image1.gameObject.SetActive(false);
@@ -66,11 +69,11 @@ public class LevelManagement : MonoBehaviour
         for (int i = levels.Count - 1; i >=0 ; i--)
         {
             DatabaseManager.Level level = levels[i]; // Lấy từng đối tượng Level
-            if ((level.Id == 3) && (level.Pass == 1)){
+            if ((level.Id == 4) && (level.Pass == 1)){
                 image3.gameObject.SetActive(false);
                 image2.gameObject.SetActive(false);
                 image1.gameObject.SetActive(false);
-                if (id == 3){
+                if (id == 4){
                     imageTimeline3.color =  grayColor;
                     imageTimeline2.color =  originalColor;
                     imageTimeline1.color =  originalColor;
@@ -78,7 +81,7 @@ public class LevelManagement : MonoBehaviour
                     imageTimeline2.color =  grayColor;
                     imageTimeline3.color =  originalColor;
                     imageTimeline1.color =  originalColor;
-                }else{
+                }else if(id == 1){
                     imageTimeline1.color =  grayColor;
                     imageTimeline3.color =  originalColor;
                     imageTimeline2.color =  originalColor;
@@ -91,7 +94,7 @@ public class LevelManagement : MonoBehaviour
                     imageTimeline2.color =  grayColor;
                     imageTimeline3.color =  originalColor;
                     imageTimeline1.color =  originalColor;
-                }else{
+                }else if(id == 1){
                     imageTimeline1.color =  grayColor;
                     imageTimeline3.color =  originalColor;
                     imageTimeline2.color =  originalColor;

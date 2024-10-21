@@ -21,7 +21,14 @@ public class Ally3Movement : MonoBehaviour
     }
     void Start()
     {
-        transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        if(id == 1){
+            transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        } else if(id == 2){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        } else if(id == 3){
+            transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        }
+        
         animator = GetComponent<Animator>();
         if (healthBar != null) // Kiểm tra xem healthBar có được gán không
         {

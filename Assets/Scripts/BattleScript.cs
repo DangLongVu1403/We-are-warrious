@@ -29,7 +29,6 @@ public class BattleScript : MonoBehaviour
     void Update(){
         DatabaseManager.GameData dataGold = dbManager.GetGold();
         goldText.text = dataGold.Gold.ToString();
-        Debug.Log("id:"+ Id);
         uprage.id = Id;
         uprageManager.id = Id;
         if (Id == 1){
@@ -40,12 +39,12 @@ public class BattleScript : MonoBehaviour
             backLevel.gameObject.SetActive(false);
             if (GetId() >= 3){
                 nextLevel.gameObject.SetActive(true);
-                nextLevel.onClick.AddListener(() => ChangeId(4));
+                nextLevel.onClick.AddListener(() => ChangeId(3));
             }else{
                 nextLevel.gameObject.SetActive(false);
             }
         }
-        if (Id == 3){
+        if (Id == 4){
             backLevel.gameObject.SetActive(false);
             if (GetId() >= 5){
                 nextLevel.gameObject.SetActive(true);
@@ -54,13 +53,21 @@ public class BattleScript : MonoBehaviour
                 nextLevel.gameObject.SetActive(false);
             }
         }
-        if (Id == 4){
+        if (Id == 3){
             nextLevel.gameObject.SetActive(false);
+            backLevel.gameObject.SetActive(true);
             backLevel.onClick.AddListener(() => ChangeId(2));
         }
         if (Id ==5){
+            backLevel.onClick.AddListener(() => ChangeId(4));
+            if (GetId() > 5){
+                nextLevel.gameObject.SetActive(true);
+                nextLevel.onClick.AddListener(() => ChangeId(6));
+            }else{
+                nextLevel.gameObject.SetActive(false);
+            }
             nextLevel.onClick.AddListener(() => ChangeId(6));
-            backLevel.onClick.AddListener(() => ChangeId(3));
+            backLevel.onClick.AddListener(() => ChangeId(4));
         }
         if (Id == 6){
             nextLevel.gameObject.SetActive(false);
@@ -81,10 +88,10 @@ public class BattleScript : MonoBehaviour
         if (Id == 2){
             SceneManager.LoadScene("2.1"); // Chuyển sang scene khác
         }
-        if (Id == 3){
+        if (Id == 4){
             SceneManager.LoadScene("3.1"); // Chuyển sang scene khác
         }
-        if (Id == 4){
+        if (Id == 3){
             SceneManager.LoadScene("2.2"); // Chuyển sang scene khác
         }
         if (Id == 5){
@@ -98,31 +105,44 @@ public class BattleScript : MonoBehaviour
     }
 
     public int GetId(){
-        var levels = dbManager.GetAllLevels();
-    
+    var levels = dbManager.GetAllLevels();
+
+    Debug.Log("Số lượng level: " + levels.Count);
+
     // Duyệt qua từng bản ghi trong bảng Level
-        for (int i = levels.Count - 1; i >=0 ; i--)
-        {
-            DatabaseManager.Level level = levels[i]; // Lấy từng đối tượng Level
-            if ((level.Id == 6) && (level.Pass == 1)){
-                return 6;
-            }
-            if ((level.Id == 5) && (level.Pass == 1)){
-                return 5;
-            }
-            if ((level.Id == 3) && (level.Pass == 1)){
-                return 3;
-            }
-            if ((level.Id == 4) && (level.Pass == 1)){
-                return 4;
-            }
-            if ((level.Id == 2) && (level.Pass == 1)){
-                return 2;
-            }
-            if ((level.Id == 1) && (level.Pass == 1)){
-                return 1;
-            }
+    for (int i = levels.Count - 1; i >= 0; i--)
+    {
+        DatabaseManager.Level level = levels[i]; // Lấy từng đối tượng Level
+        Debug.Log("Checking level: " + level.Id + ", Pass: " + level.Pass);
+
+        if ((level.Id == 6) && (level.Pass == 1)){
+            Debug.Log("Returning Id 6");
+            return 6;
         }
-        return 1;
+        if ((level.Id == 5) && (level.Pass == 1)){
+            Debug.Log("Returning Id 5");
+            return 5;
+        }
+        if ((level.Id == 4) && (level.Pass == 1)){
+            Debug.Log("Returning Id 4");
+            return 4;
+        }
+        if ((level.Id == 3) && (level.Pass == 1)){
+            Debug.Log("Returning Id 3");
+            return 3;
+        }
+        if ((level.Id == 2) && (level.Pass == 1)){
+            Debug.Log("Returning Id 2");
+            return 2;
+        }
+        if ((level.Id == 1) && (level.Pass == 1)){
+            Debug.Log("Returning Id 1");
+            return 1;
+        }
     }
+
+    Debug.Log("Returning default Id 1");
+    return 1; // Giá trị mặc định nếu không có điều kiện nào thỏa mãn
+}
+
 }

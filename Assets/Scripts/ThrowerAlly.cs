@@ -20,7 +20,13 @@ public class ThrowerAlly : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         id = gameManager.getIdAlly();
-        transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+        if(id == 1){
+            transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        } else if(id == 2){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        } else if(id == 3){
+            transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);
+        }
         dbManager = FindObjectOfType<DatabaseManager>();
     }
 

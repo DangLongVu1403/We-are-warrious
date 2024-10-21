@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AllyHall : MonoBehaviour
 {
+    [SerializeField] private GameObject graphic;
+    [SerializeField] private Vector2 offsetGraphic;
     public HealthBar healthBar; // Tham chiếu đến HealthBar
     public int id;
     private float currentHealth; // Sức khỏe hiện tại của hall
@@ -12,6 +14,10 @@ public class AllyHall : MonoBehaviour
     {
         dbManager = FindObjectOfType<DatabaseManager>();
         gameManager = FindObjectOfType<GameManager>(); 
+
+        AlignToLeft();
+    }
+    void Start(){
         if (healthBar != null) // Kiểm tra xem healthBar có được gán không
         {
             DatabaseManager.Hall data = dbManager.GetHallById(id);
@@ -26,7 +32,6 @@ public class AllyHall : MonoBehaviour
         }
         id = gameManager.getIdAlly();
     }
-
      void Update()
     {
         if (healthBar.GetCurrentHealth() <= 0){
@@ -56,4 +61,11 @@ public class AllyHall : MonoBehaviour
         return currentHealth <= 0;
     }
 
+    private void AlignToLeft()
+    {
+        Camera mainCamera = Camera.main;
+        Vector3 leftScreenPosition = mainCamera.ScreenToWorldPoint(new Vector2(0f, Screen.height / 2));
+        leftScreenPosition += (Vector3) offsetGraphic;
+        graphic.transform.position = new Vector3(leftScreenPosition.x, transform.position.y, transform.position.z);
+    }
 }

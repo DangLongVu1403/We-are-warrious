@@ -18,11 +18,17 @@ public class AllyMovement : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
         dbManager = FindObjectOfType<DatabaseManager>();
         id = gameManager.getIdAlly();
+        if(id == 1){
+            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        } else if(id == 2){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        } else if(id == 3){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        }
     }
 
     void Start()
     {
-        transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
         animator = GetComponent<Animator>();
         if (healthBar != null) // Kiểm tra xem healthBar có được gán không
         {

@@ -27,7 +27,7 @@ public class ArrowAlly : MonoBehaviour
     public void Initialize(GameObject target)
     {
         this.target = target;
-        Destroy(gameObject, 1f); // Hủy mũi tên sau 3 giây nếu không va chạm
+        Destroy(gameObject, 2f); // Hủy mũi tên sau 3 giây nếu không va chạm
     }
 
     void Update()
