@@ -24,13 +24,17 @@ public class BattleScript : MonoBehaviour
     {
         Id=GetId();
         uprage.id = Id;
-        uprageManager.id = Id;
+        if (Id >3){
+            uprageManager.id = 3;
+        }else if (Id==1){
+            uprageManager.id = Id;
+        } else{
+            uprageManager.id = 2;
+        }
     }
     void Update(){
         DatabaseManager.GameData dataGold = dbManager.GetGold();
         goldText.text = dataGold.Gold.ToString();
-        uprage.id = Id;
-        uprageManager.id = Id;
         if (Id == 1){
             nextLevel.gameObject.SetActive(false);
             backLevel.gameObject.SetActive(false);

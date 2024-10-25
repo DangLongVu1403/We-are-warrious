@@ -7,7 +7,8 @@ using System.Collections;
 public class SpawnSoldierController : MonoBehaviour
 {
     public GameObject allyPrefab; // Prefab của lính đồng minh
-    public GameObject archerPrefab;
+    public GameObject archerAllyPrefab;
+     public GameObject archerEnemyPrefab;
     public GameObject enemyPrefab; // Prefab của lính kẻ địch
     public GameObject ally3Prefab; // Prefab của lính đồng minh
     public GameObject enemy3Prefab; // Prefab của lính kẻ địch
@@ -48,7 +49,7 @@ public class SpawnSoldierController : MonoBehaviour
         if (id == 1 || id ==3){
             StartCoroutine(SpawnEnemySoldierCoroutine2());  
         }
-        else{
+        else if(id==2){
             StartCoroutine(SpawnEnemySoldierCoroutine2_1());
         }
         StartCoroutine(SpawnEnemySoldierCoroutine3());
@@ -224,7 +225,7 @@ public class SpawnSoldierController : MonoBehaviour
                         Vector3 spawnPosition = GetValidSpawnPosition(enemySpawnPoint.position, throwerEnemies);
 
                         // Tạo lính mới
-                        GameObject newEnemy = Instantiate(throwerEnemyPrefab, spawnPosition, enemySpawnPoint.rotation);
+                        GameObject newEnemy = Instantiate(archerEnemyPrefab, spawnPosition, enemySpawnPoint.rotation);
                         newEnemy.GetComponent<ArcherEnemy>().SetController(this); // Thiết lập controller cho lính mới
                         throwerEnemies.Add(newEnemy); // Thêm lính vào danh sách enemySoldiers
                     }
@@ -363,13 +364,13 @@ public class SpawnSoldierController : MonoBehaviour
     }
     public void SpawnArrowSoldier()
     {
-        if (CanSpawnSoldier(neededFoodAlly1Text))
+        if (CanSpawnSoldier(neededFoodAlly2Text))
         {
-            Vector3 spawnPosition = GetValidSpawnPosition(allySpawnPoint.position, allySoldiers);
-            GameObject newAlly = Instantiate(archerPrefab, spawnPosition, allySpawnPoint.rotation);
+            Vector3 spawnPosition = GetValidSpawnPosition(allySpawnPoint.position, throwerAllies);
+            GameObject newAlly = Instantiate(archerAllyPrefab, spawnPosition, allySpawnPoint.rotation);
             newAlly.GetComponent<ArcherAlly>().SetController(this); // Thiết lập controller cho lính mới
-            allySoldiers.Add(newAlly);
-            UpdateFoodCount(neededFoodAlly1Text); // Cập nhật số lượng thực phẩm sau khi spawn
+            throwerAllies.Add(newAlly);
+            UpdateFoodCount(neededFoodAlly2Text); // Cập nhật số lượng thực phẩm sau khi spawn
         }
     }
 

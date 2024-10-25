@@ -14,9 +14,13 @@ public class LevelManagement : MonoBehaviour
     private DatabaseManager databaseManager;
     private BattleScript battleScript;
     private Uprage uprage;
+    private UprageManager uprageManager;
     private Color originalColor;
     void Awake(){
         databaseManager = FindObjectOfType<DatabaseManager>();
+        battleScript = FindObjectOfType<BattleScript>();
+        uprage = FindObjectOfType<Uprage>();
+        uprageManager = FindObjectOfType<UprageManager>();
         image3.gameObject.SetActive(true);
         image2.gameObject.SetActive(true);
         image1.gameObject.SetActive(true);
@@ -24,8 +28,6 @@ public class LevelManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        battleScript = FindObjectOfType<BattleScript>();
-        uprage = FindObjectOfType<Uprage>();
         originalColor = Color.white; 
         Color grayColor = new Color(94f / 255f, 94f / 255f, 94f / 255f, 1f);
         var levels = databaseManager.GetAllLevels();
@@ -63,7 +65,12 @@ public class LevelManagement : MonoBehaviour
         Color grayColor = new Color(94f / 255f, 94f / 255f, 94f / 255f, 1f);
         var levels = databaseManager.GetAllLevels();
         battleScript.Id = id;
-        uprage.id = id;
+        if (id == 3){
+            uprage.id = 4;
+        }else{
+            uprage.id = id;
+        }
+        uprageManager.id=id;
     
     // Duyệt qua từng bản ghi trong bảng Level
         for (int i = levels.Count - 1; i >=0 ; i--)
@@ -73,7 +80,7 @@ public class LevelManagement : MonoBehaviour
                 image3.gameObject.SetActive(false);
                 image2.gameObject.SetActive(false);
                 image1.gameObject.SetActive(false);
-                if (id == 4){
+                if (id == 3){
                     imageTimeline3.color =  grayColor;
                     imageTimeline2.color =  originalColor;
                     imageTimeline1.color =  originalColor;

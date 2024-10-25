@@ -3600,7 +3600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allyPrefab: {fileID: 1420769750}
-  archerPrefab: {fileID: 982525462}
+  archerAllyPrefab: {fileID: 982525462}
+  archerEnemyPrefab: {fileID: 119652970}
   enemyPrefab: {fileID: 467260957}
   ally3Prefab: {fileID: 240678749}
   enemy3Prefab: {fileID: 671773669}

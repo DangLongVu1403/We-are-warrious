@@ -62,6 +62,11 @@ public class ArrowAlly : MonoBehaviour
                     {
                         throwerEnemy.TakeDamage(damage);
                     }
+                    ArcherEnemy archerEnemy = target.GetComponent<ArcherEnemy>();
+                    if (archerEnemy != null)
+                    {
+                        archerEnemy.TakeDamage(damage);
+                    }
                     Enemy3Movement enemy3 = target.GetComponent<Enemy3Movement>();
                     if (enemy3 != null)
                     {

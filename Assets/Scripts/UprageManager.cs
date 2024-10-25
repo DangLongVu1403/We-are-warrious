@@ -4,10 +4,18 @@ public class UprageManager : MonoBehaviour
 {
     private DatabaseManager dbManager;
     public Button btnDropTimeCooldownFood;
+    private BattleScript battleScript;
     public int id;
+    private int mergeId;
     void Awake()
     {
         dbManager = FindObjectOfType<DatabaseManager>();
+        battleScript = FindObjectOfType<BattleScript>();
+    }
+    void Start(){
+    }
+    void Update(){
+        Debug.Log("ddddd"+id);
     }
 
     public void UprageTimeCooldownFood(){
