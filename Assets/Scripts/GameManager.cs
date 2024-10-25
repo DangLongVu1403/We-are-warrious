@@ -33,9 +33,9 @@ public class GameManager : MonoBehaviour
     }
 
     public int getIdAlly(){
-        if ( PlayerPrefs.GetInt("Id") == 4 || PlayerPrefs.GetInt("Id") == 2 ){
+        if ( PlayerPrefs.GetInt("Id") == 3 || PlayerPrefs.GetInt("Id") == 2 ){
             return 2;
-        }else if (PlayerPrefs.GetInt("Id") == 5 || PlayerPrefs.GetInt("Id") == 6 || PlayerPrefs.GetInt("Id") == 3){
+        }else if (PlayerPrefs.GetInt("Id") == 5 || PlayerPrefs.GetInt("Id") == 6 || PlayerPrefs.GetInt("Id") == 4){
             return 3;
         }else{
             return 1;
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     public int getIdEnemy(){
         if ( PlayerPrefs.GetInt("Id") == 6 ){
             return 3;
-        }else if (PlayerPrefs.GetInt("Id") == 4 || PlayerPrefs.GetInt("Id") == 5){
+        }else if (PlayerPrefs.GetInt("Id") == 3 || PlayerPrefs.GetInt("Id") == 5){
             return 2;
         }else{
             return 1;
@@ -90,6 +90,17 @@ public class GameManager : MonoBehaviour
         {
             resultImage.sprite = victorySprite;
             Debug.Log("Victory message displayed!");
+            if (PlayerPrefs.GetInt("Id") == 1){
+                dbManager.UpdateLevel(2,1);
+            }else if (PlayerPrefs.GetInt("Id") == 2){
+                dbManager.UpdateLevel(3,1);
+            }else if (PlayerPrefs.GetInt("Id") == 3){
+                dbManager.UpdateLevel(4,1);
+            }else if (PlayerPrefs.GetInt("Id") == 4){
+                dbManager.UpdateLevel(5,1);
+            }else if (PlayerPrefs.GetInt("Id") == 5){
+                dbManager.UpdateLevel(6,1);
+            }
             ShowResultPanel();
         }
     }

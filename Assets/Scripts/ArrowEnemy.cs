@@ -4,6 +4,7 @@ public class ArrowEnemy : MonoBehaviour
 {
     public float speed = 5f;
     public float damage = 20f;
+    [SerializeField] private float lifeTime = 2f;
     private GameObject target;
     private DatabaseManager databaseManager;
     private GameManager gameManager;
@@ -27,11 +28,12 @@ public class ArrowEnemy : MonoBehaviour
     public void Initialize(GameObject target)
     {
         this.target = target;
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, lifeTime);
     }
 
     void Update()
     {
+
         if (target != null)
         {
             Vector3 direction = (target.transform.position - transform.position).normalized;
@@ -45,6 +47,7 @@ public class ArrowEnemy : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.transform.position) < 0.1f)
             {
+                Debug.Log("khanhs" + "in zone" + $"{target.gameObject.tag}");
                 if (target.CompareTag("Ally"))
                 {
                     AllyMovement ally = target.GetComponent<AllyMovement>();
@@ -52,15 +55,32 @@ public class ArrowEnemy : MonoBehaviour
                     {
                         ally.TakeDamage(damage);
                     }
-                }
-                else if (target.CompareTag("AllyHall"))
-                {
-                    AllyHall allyHall = target.GetComponent<AllyHall>();
-                    if (allyHall != null)
+                    ThrowerAlly throwerAlly = target.GetComponent<ThrowerAlly>();
+                    if (throwerAlly != null)
                     {
-                        allyHall.TakeDamage(damage);
+                        throwerAlly.TakeDamage(damage);
+                    }
+                    ArcherAlly archerAlly = target.GetComponent<ArcherAlly>();
+                    if (archerAlly != null)
+                    {
+                        archerAlly.TakeDamage(damage);
+                    }
+                    Ally3Movement ally3 = target.GetComponent<Ally3Movement>();
+                    if (ally3 != null)
+                    {
+                        ally3.TakeDamage(damage);
                     }
                 }
+                else if (target.CompareTag("AllyHall"))
+                    {
+                        Debug.Log("khanhs" + "equal");
+                        AllyHall allyHall = target.GetComponent<AllyHall>();
+                        if (allyHall != null)
+                        {
+                            Debug.Log("khanhs" + "!= null");
+                            allyHall.TakeDamage(damage);
+                        }
+                    }
 
                 Destroy(gameObject);
             }

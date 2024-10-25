@@ -27,7 +27,7 @@ public class ArrowAlly : MonoBehaviour
     public void Initialize(GameObject target)
     {
         this.target = target;
-        Destroy(gameObject, 1f); // Hủy mũi tên sau 3 giây nếu không va chạm
+        Destroy(gameObject, 2f); // Hủy mũi tên sau 3 giây nếu không va chạm
     }
 
     void Update()
@@ -61,6 +61,11 @@ public class ArrowAlly : MonoBehaviour
                     if (throwerEnemy != null)
                     {
                         throwerEnemy.TakeDamage(damage);
+                    }
+                    ArcherEnemy archerEnemy = target.GetComponent<ArcherEnemy>();
+                    if (archerEnemy != null)
+                    {
+                        archerEnemy.TakeDamage(damage);
                     }
                     Enemy3Movement enemy3 = target.GetComponent<Enemy3Movement>();
                     if (enemy3 != null)

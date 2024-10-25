@@ -1,11 +1,21 @@
 using UnityEngine;
+using UnityEngine.UI;
 public class UprageManager : MonoBehaviour
 {
     private DatabaseManager dbManager;
+    public Button btnDropTimeCooldownFood;
+    private BattleScript battleScript;
     public int id;
+    private int mergeId;
     void Awake()
     {
         dbManager = FindObjectOfType<DatabaseManager>();
+        battleScript = FindObjectOfType<BattleScript>();
+    }
+    void Start(){
+    }
+    void Update(){
+        Debug.Log("ddddd"+id);
     }
 
     public void UprageTimeCooldownFood(){
@@ -14,7 +24,10 @@ public class UprageManager : MonoBehaviour
         int goldUprageTime = dataUprage.GoldUprageTime;
         if (goldUprageTime <= dataGold.Gold){
             float timeCooldown = float.Parse(dataUprage.TimeCooldownFood);
-            timeCooldown -= 0.05f;
+            timeCooldown -= 0.2f;
+            if(timeCooldown == 1){
+                btnDropTimeCooldownFood.gameObject.SetActive(false);
+            }
             string newTimeCooldown = timeCooldown.ToString();
             dbManager.UpdateTimeCooldownFood(id,newTimeCooldown);
             int jumpGoldUprageTime = dataUprage.JumpGoldTime;
@@ -24,6 +37,7 @@ public class UprageManager : MonoBehaviour
             dbManager.UpdateJumpGoldTime(id,newJumpGoldUprageTime);
             int newGold = dataGold.Gold - goldUprageTime;
             dbManager.UpdateGold(newGold);
+            dbManager.UpdateNewGoldUpdate(newGold);
         }
     }
 
@@ -42,6 +56,7 @@ public class UprageManager : MonoBehaviour
             dbManager.UpdateJumpGoldHealth(id,newJumpGoldUprageHealth);
             int newGold = dataGold.Gold - GoldUprageHealthHall;
             dbManager.UpdateGold(newGold);
+            dbManager.UpdateNewGoldUpdate(newGold);
         }
     }
 
@@ -51,6 +66,7 @@ public class UprageManager : MonoBehaviour
         if(dataGold.Gold >= dataUprage.GoldUprageAlly2){
             int newGold = dataGold.Gold - dataUprage.GoldUprageAlly2;
             dbManager.UpdateGold(newGold);
+            dbManager.UpdateNewGoldUpdate(newGold);
             dbManager.UpdateLockAlly2(id,1);
         }
     }
@@ -60,6 +76,7 @@ public class UprageManager : MonoBehaviour
         if(dataGold.Gold >= dataUprage.GoldUprageAlly3){
             int newGold = dataGold.Gold - dataUprage.GoldUprageAlly3;
             dbManager.UpdateGold(newGold);
+            dbManager.UpdateNewGoldUpdate(newGold);
             dbManager.UpdateLockAlly3(id,1);
         }
     }

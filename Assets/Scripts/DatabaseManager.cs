@@ -1,8 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System;
 using UnityEngine;
 using SQLite4Unity3d;
 using System.Linq;
+using UnityEngine.Networking;
 
 public class DatabaseManager : MonoBehaviour
 {
@@ -115,12 +118,66 @@ public class DatabaseManager : MonoBehaviour
         public int Id { get; set; } // Khóa chính
         public int Pass { get; set; }
     }
-    void Awake()
+    // void Awake()
+    // {
+    //     // string dbPath = Application.persistentDataPath + "/mydatabase.db";
+    //     string dbPath = Path.Combine(Application.streamingAssetsPath, "mydatabase.db");
+    //     // db = new SQLiteConnection(dbPath);
+    //     StartCoroutine(LoadDatabase(dbPath));
+    // }
+
+    // private IEnumerator LoadDatabase(string path)
+    // {
+    //     UnityWebRequest request = UnityWebRequest.Get(path);
+    //     yield return request.SendWebRequest();
+
+    //     if (request.result != UnityWebRequest.Result.Success)
+    //     {
+    //         Debug.LogError("Error loading database: " + request.error);
+    //     }
+    //     else
+    //     {
+    //         // Lưu file vào Application.persistentDataPath
+    //         string destinationPath = Path.Combine(Application.persistentDataPath, "mydatabase.db");
+    //         File.WriteAllBytes(destinationPath, request.downloadHandler.data);
+            
+    //         // Mở cơ sở dữ liệu
+    //         db = new SQLiteConnection(destinationPath);
+    //     }
+    // }
+   void Awake()
     {
-        string dbPath = Application.persistentDataPath + "/mydatabase.db";
-        db = new SQLiteConnection(dbPath);
+        string dbPath = Path.Combine(Application.persistentDataPath, "mydatabase.db");
+        StartCoroutine(LoadDatabase(dbPath));
     }
 
+    private IEnumerator LoadDatabase(string path)
+    {
+        // Kiểm tra xem tệp có tồn tại không
+        if (!File.Exists(path))
+        {
+            // Nếu không tồn tại, sao chép tệp từ StreamingAssets
+            string streamingAssetsPath = Path.Combine(Application.streamingAssetsPath, "mydatabase.db");
+            
+            // Chỉ sử dụng UnityWebRequest cho tệp ở StreamingAssets
+            UnityWebRequest request = UnityWebRequest.Get(streamingAssetsPath);
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.LogError("Error loading database: " + request.error);
+                yield break;
+            }
+
+            // Lưu tệp vào Application.persistentDataPath
+            File.WriteAllBytes(path, request.downloadHandler.data);
+            Debug.Log("Database copied to persistentDataPath: " + path);
+        }
+
+        // Mở cơ sở dữ liệu
+        db = new SQLiteConnection(path);
+        Debug.Log("Database loaded successfully: " + path);
+    }
     // Lấy dữ liệu từ bảng SoldierAlly theo Id
     public SoldierAlly GetSoldierAllyById(int Id)
     {
@@ -182,11 +239,26 @@ public class DatabaseManager : MonoBehaviour
         data.Gold = newGold; 
         db.Update(data);
     }
-    public List<Level> GetAllLevels()
+   public List<Level> GetAllLevels()
     {
-        // Lấy toàn bộ dữ liệu từ bảng Level
-        return db.Table<Level>().ToList();
+        if (db == null)
+        {
+            Debug.LogError("Cơ sở dữ liệu chưa được khởi tạo!");
+            return new List<Level>(); // Trả về danh sách rỗng nếu db chưa được khởi tạo
+        }
+
+        try
+        {
+            // Lấy toàn bộ dữ liệu từ bảng Level
+            return db.Table<Level>().ToList();
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError("Lỗi khi lấy dữ liệu từ bảng Level: " + ex.Message);
+            return new List<Level>(); // Trả về danh sách rỗng nếu có lỗi
+        }
     }
+
 
 
     public void UpdateLevel(int id, int Pass)

@@ -117,8 +117,8 @@ public class ArcherAlly : MonoBehaviour
         {
             if (target == null)
             {
-                isMoving = true;
-                animator.SetInteger("Speed", 1);
+                isMoving = false;
+                animator.SetInteger("Speed", 0);
                 yield break;
             }
             yield return new WaitForSeconds(shootCooldown); 

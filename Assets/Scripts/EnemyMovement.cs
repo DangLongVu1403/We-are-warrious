@@ -28,12 +28,17 @@ public class EnemyMovement : MonoBehaviour
         dbManager = FindObjectOfType<DatabaseManager>();
         gameManager = FindObjectOfType<GameManager>();
         id = gameManager.getIdEnemy();
+        if(id == 1){
+            transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
+        } else if(id == 2){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        } else if(id == 3){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        }
     }
 
     void Start()
     {
-        transform.localScale = new Vector3(0.15f, 0.15f, 0.15f);
-
     // Lấy dữ liệu từ database khi bắt đầu nếu có
         if (dbManager != null)
         {
@@ -77,7 +82,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Giới hạn vị trí Y trong khoảng -0.3f đến 0.3f
-        float clampedY = Mathf.Clamp(transform.position.y, -0.3f, 0.3f);
+        float clampedY = Mathf.Clamp(transform.position.y, -0.1f, 0.5f);
         transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
 
         // Kiểm tra máu của lính
@@ -163,6 +168,15 @@ public class EnemyMovement : MonoBehaviour
                 ally3.TakeDamage(damage);
             }
         }
+        ArcherAlly ally21 = allyObj.GetComponent<ArcherAlly>();
+        while (ally21 != null && isColliding)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (ally21 != null) // Kiểm tra ally có còn tồn tại không
+            {
+                ally21.TakeDamage(damage);
+            }
+        }
         ThrowerAlly ally2 = allyObj.GetComponent<ThrowerAlly>();
         while (ally2 != null && isColliding)
         {
@@ -190,7 +204,7 @@ public class EnemyMovement : MonoBehaviour
                     Vector3 newPosition = new Vector3(transform.position.x, transform.position.y + offsetY, transform.position.z);
                     
                     // Giới hạn vị trí Y trong khoảng -0.3f đến 0.3f
-                    newPosition.y = Mathf.Clamp(newPosition.y, -0.3f, 0.3f);
+                    newPosition.y = Mathf.Clamp(newPosition.y, -0.1f, 0.5f);
 
                     transform.position = newPosition; // Cập nhật vị trí
                 }

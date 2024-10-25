@@ -21,7 +21,14 @@ public class Ally3Movement : MonoBehaviour
     }
     void Start()
     {
-        transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        if(id == 1){
+            transform.localScale = new Vector3(0.08f, 0.08f, 0.08f);
+        } else if(id == 2){
+            transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        } else if(id == 3){
+            transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+        }
+        
         animator = GetComponent<Animator>();
         if (healthBar != null) // Kiểm tra xem healthBar có được gán không
         {
@@ -54,7 +61,7 @@ public class Ally3Movement : MonoBehaviour
         }
 
         // Giới hạn vị trí Y trong khoảng -0.3f đến 0.3f
-        float clampedY = Mathf.Clamp(transform.position.y, -0.3f, 0.3f);
+        float clampedY = Mathf.Clamp(transform.position.y, -0.1f, 0.5f);
         transform.position = new Vector3(transform.position.x, clampedY, transform.position.z);
 
         // Kiểm tra máu của lính
@@ -143,6 +150,15 @@ public class Ally3Movement : MonoBehaviour
                 enemy3.TakeDamage(damage);
             }
         }
+        ArcherEnemy enemy21 = enemyObj.GetComponent<ArcherEnemy>();
+        while (enemy21 != null && isColliding)
+        {
+            yield return new WaitForSeconds(0.5f);
+            if (enemy21 != null) // Kiểm tra enemy có còn tồn tại không
+            {
+                enemy21.TakeDamage(damage);
+            }
+        }
         ThrowerEnemy enemy2 = enemyObj.GetComponent<ThrowerEnemy>();
         while (enemy2 != null && isColliding)
         {
@@ -180,7 +196,7 @@ public class Ally3Movement : MonoBehaviour
                     Vector3 newPosition = new Vector3(transform.position.x, transform.position.y + offsetY, transform.position.z);
                     
                     // Giới hạn vị trí Y trong khoảng -0.3f đến 0.3f
-                    newPosition.y = Mathf.Clamp(newPosition.y, -0.3f, 0.3f);
+                    newPosition.y = Mathf.Clamp(newPosition.y, -0.1f, 0.5f);
 
                     transform.position = newPosition; // Cập nhật vị trí
                 }

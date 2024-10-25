@@ -4,6 +4,8 @@ using TMPro;
 
 public class EnemyHall : MonoBehaviour
 {
+    [SerializeField] private GameObject graphic;
+    [SerializeField] private Vector2 offsetGraphic;
     public HealthBar healthBar; // Tham chiếu đến HealthBar
     public int id;
     private float currentHealth; // Sức khỏe hiện tại của hall
@@ -19,6 +21,10 @@ public class EnemyHall : MonoBehaviour
     {
         dbManager = FindObjectOfType<DatabaseManager>();
         gameManager = FindObjectOfType<GameManager>(); 
+
+        AlignToRight();
+    }
+    void Start(){
         if (healthBar != null) // Kiểm tra xem healthBar có được gán không
         {
             DatabaseManager.Hall data = dbManager.GetHallById(id);
@@ -63,7 +69,6 @@ public class EnemyHall : MonoBehaviour
 
     public bool IsDefeated()
     {
-        dbManager.UpdateLevel(PlayerPrefs.GetInt("Id"),1);
         return currentHealth <= 0;
     }
     public void DropGold()
@@ -87,5 +92,13 @@ public class EnemyHall : MonoBehaviour
 
             }
         }
+    }
+
+    private void AlignToRight()
+    {
+        Camera mainCamera = Camera.main;
+        Vector3 rightScreenPosition = mainCamera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height / 2));
+        rightScreenPosition += (Vector3) offsetGraphic;
+        graphic.transform.position = new Vector3(rightScreenPosition.x, transform.position.y, transform.position.z);
     }
 }
